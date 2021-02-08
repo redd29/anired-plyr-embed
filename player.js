@@ -1,4 +1,4 @@
-let player;
+var player;
 function plyrSetup() {
   (document.getElementById('videocontainer').style.display = 'block'),
     window.addEventListener('orientationchange', function () {
@@ -162,7 +162,7 @@ function checkvideo(e) {
     t.send();
 }
 function shownotif(e, t = 4e5) {
-  var n = document.getElementById('alert');
+  var n = document.getElementById('notif');
   (n.innerHTML = e),
     (n.style.display = 'block'),
     setTimeout(function () {
