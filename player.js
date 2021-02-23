@@ -136,8 +136,10 @@ function timeMonitor() {
         );
     }, 2e3));
 }
+
 var seekLastTime,
   seeking = !1;
+
 function seekFast() {
   seeking &&
     seekLastTime < player.currentTime &&
@@ -153,7 +155,7 @@ function checkvideo(e) {
   t.open('GET', e),
     (t.timeout = 5e3),
     (t.onload = function () {
-      200 !== this.status &&
+      this.status !== 200 &&
         shownotif('Video expired.<br>Please use another stream', 2e5);
     }),
     (t.onerror = function () {
@@ -172,7 +174,7 @@ function shownotif(e, t = 4e5) {
 function dec64(e) {
   if (void 0 === e || '' === e.trim()) return !1;
   try {
-    console.log(atob(e));
+    // console.log(atob(e));
     return atob(e);
   } catch (e) {
     return !1;
